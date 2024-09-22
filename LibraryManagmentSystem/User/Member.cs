@@ -12,34 +12,36 @@ namespace LibraryManagmentSystem.User
         private DateTime membershipDate;
         private int maxBorrow;
         private int borrowNo;
-        private double Fine;
+        private double fine;
         DateTime dateTime = DateTime.UtcNow.Date;
+
         // the constructor
         public Member(string name, string family, string phonenumber,
         Gender gender, DateTime membershipdate = default) : base(name, family, phonenumber, gender)
         {
             membershipDate = membershipdate == default ? dateTime : membershipdate;
         }
+
         // Getters and Setters
-        public DateTime membershipdate
+        public DateTime Membershipdate
         {
             get { return membershipDate; }
             set { membershipDate = value; }
         }
-        public int maxborrow
+        public int Maxborrow
         {
             get { return maxBorrow; }
             set { maxBorrow = value; }
         }
-        public int borrowno
+        public int Borrowno
         {
             get { return borrowNo; }
             set { borrowNo = value; }
         }
-        public double fine
+        public double Fine
         {
-            get { return Fine; }
-            set { Fine = value; }
+            get { return fine; }
+            set { fine = value; }
         }
         // searching for book
         public string search(string bookName, string authorName)
@@ -53,12 +55,15 @@ namespace LibraryManagmentSystem.User
                 for (int i = 0; i < maxBorrow; i++)
                 {
                     string[] booksSplit = booksListAsString[i].Split(';');
-                    string title = booksSplit[1].Substring(booksSplit[1].IndexOf(':') + 1); // third one must be author name in saving format, ordered by initialization in book class
+                    string title = booksSplit[1].Substring(booksSplit[1].IndexOf(':') + 1);
                     string author = booksSplit[2].Substring(booksSplit[2].IndexOf(':') + 1); // third one must be author name in saving format, ordered by initialization in book class
-                    string publisher = booksSplit[3].Substring(booksSplit[3].IndexOf(':') + 1); // third one must be author name in saving format, ordered by initialization in book class
+                    string publisher = booksSplit[3].Substring(booksSplit[3].IndexOf(':') + 1);
+                    string isBarrowd = booksSplit[7].Substring(booksSplit[7].IndexOf(':') + 1);
+
                     if (author.Equals(authorName))
                     {
-                        return $"Title: {title}\nAuthor: {author}\nPublisher: {publisher}\n";
+                        // returning search result if anything founded
+                        return $"Title: {title}\nAuthor: {author}\nPublisher: {publisher}\nStatus: {isBarrowd}\n";
                     }
                 }
             }
@@ -70,14 +75,16 @@ namespace LibraryManagmentSystem.User
                     string title = booksSplit[1].Substring(booksSplit[1].IndexOf(':') + 1); // second one of booksSplit[1] value must be author name in saving format
                     string author = booksSplit[2].Substring(booksSplit[2].IndexOf(':') + 1);
                     string publisher = booksSplit[3].Substring(booksSplit[3].IndexOf(':') + 1);
+                    string isBarrowd = booksSplit[7].Substring(booksSplit[7].IndexOf(':') + 1);
 
                     if (bookName.Equals(title))
                     {
-                        return $"Title: {title}\nAuthor: {author}\nPublisher: {publisher}\n";
+                        // returning search result if anything founded
+                        return $"Title: {title}\nAuthor: {author}\nPublisher: {publisher}\nStatus: {isBarrowd}\n";
                     }
                 }
             }
-            return "noting has found";// returning search result
+            return "nothing has found";
         }
     }
 }

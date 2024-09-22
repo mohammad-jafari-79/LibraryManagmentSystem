@@ -63,22 +63,16 @@ namespace LibraryManagmentSystem.Book
             set { isBorrowed = value; }
         }
 
-        public void update()
-        {
-            Console.WriteLine("the library properties are updated");
-        }
-
         // check if any problem may exist with borrowing books or not
-        public void issueLoan()
+        public void issueLoan(DateTime loan_date, DateTime due_date, bool borrowed, double fine)
         {
-            if (loanDate > dueDate && isBorrowed == true)
-            //&& User.fine>=0)
+            if (loanDate >= dueDate && isBorrowed == true && fine==0.0)
             {
-                Console.WriteLine();
+                Console.WriteLine("Can't lend");
             }
             else
             {
-                Console.WriteLine();
+                Console.WriteLine("No Problem");
             }
 
         }

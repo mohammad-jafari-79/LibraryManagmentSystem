@@ -77,7 +77,6 @@ namespace LibraryManagmentSystem.User
                     }
                 }
             }
-            return "";// returning search result
         }
     }
 }

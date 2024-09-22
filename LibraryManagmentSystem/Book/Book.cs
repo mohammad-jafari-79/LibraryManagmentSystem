@@ -63,18 +63,5 @@ namespace LibraryManagmentSystem.Book
             set { isBorrowed = value; }
         }
 
-        // check if any problem may exist with borrowing books or not
-        public void issueLoan(DateTime loan_date, DateTime due_date, bool borrowed, double fine)
-        {
-            if (loanDate >= dueDate && isBorrowed == true && fine==0.0)
-            {
-                Console.WriteLine("Can't lend");
-            }
-            else
-            {
-                Console.WriteLine("No Problem");
-            }
-
-        }
     }
 }

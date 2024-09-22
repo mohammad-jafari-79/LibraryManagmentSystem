@@ -1,4 +1,4 @@
-﻿//the menu
+﻿// the menu
 using LibraryManagmentSystem.User;
 
 while (true)
@@ -27,7 +27,7 @@ while (true)
     managers.Add(manager);
     User user = new User("kave", "akbarzade", "09293482343", Gender.Male);
     users.Add(user);
-
+    
     switch (roleNo)
     {
         case 1:
@@ -47,11 +47,29 @@ while (true)
             break;
 
         case 3:
-            //printing Funcions
-            Console.WriteLine("(1)\n(2)\n(3)\n(4)\n(5)\n(6)\n(7)\n(8)exit\n");
+            // printing Funcions
+            Console.WriteLine("(1)Search by book name\n(2)Search by author\n(3)exit\n");
             Console.WriteLine("-----------------------------------------------------------\n");
             int input3 = int.Parse(Console.ReadLine());
             break;
+            switch (input3)
+            {
+                case 1:
+                    Console.WriteLine("Please enter the book name that you are looking for:\n");
+                    string bookName = Console.ReadLine();
+                    string searchBookResult = member.search(bookName,"");
+                    Console.WriteLine(searchBookResult);
+                    break;
+                case 2:
+                    Console.WriteLine("Please enter the author name that you are looking for:\n");
+                    string authorName = Console.ReadLine();
+                    string searchAuthorResult = member.search("",authorName);
+                    Console.WriteLine(searchAuthorResult);
+                    break;
+                case 3:
+                    return;
+                    break;
+            }
 
         default:
             Console.WriteLine("You have entered a number out of list please try again\n");

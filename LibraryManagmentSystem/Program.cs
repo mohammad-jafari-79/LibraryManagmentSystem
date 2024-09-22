@@ -33,7 +33,7 @@ while (true)
         case 1:
             Console.WriteLine("Please choose one of the menu option by entering the number:");
             //printing Funcions
-            Console.WriteLine("(1)\n(2)\n(3)\n(4)\n(5)\n(6)\n(7)\n(8)\n(9)exit\n");
+            Console.WriteLine("(1)search\n(2)\n(3)\n(4)\n(5)\n(6)\n(7)\n(8)\n(9)exit\n");
             Console.WriteLine("-----------------------------------------------------------\n");
             int input1 = int.Parse(Console.ReadLine());
             break;
